@@ -1,0 +1,24 @@
+From d349e59b6fd6e9926298f0371052d9f4c72a2cad Mon Sep 17 00:00:00 2001
+From: Simon Bruder <simon@sbruder.de>
+Date: Thu, 21 Oct 2021 23:01:23 +0200
+Subject: [PATCH] Fix build with recent GCC
+
+---
+ Images/BaseImage.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Images/BaseImage.h b/Images/BaseImage.h
+index c3a5663..544c0ac 100644
+--- a/Images/BaseImage.h
++++ b/Images/BaseImage.h
+@@ -26,6 +26,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ 
+ #include <Threads/Atomic.h>
+ #include <GL/gl.h>
++#include <cstddef>
+ 
+ namespace Images {
+ 
+-- 
+2.31.1
+

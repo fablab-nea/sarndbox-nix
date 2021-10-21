@@ -5,10 +5,16 @@
   };
 
   outputs = { self, nixpkgs, flake-utils }: {
-    overlay = final: prev: { };
+    overlay = final: prev: {
+      vrui = prev.callPackage ./vrui { };
+    };
   } // (flake-utils.lib.eachDefaultSystem (system:
     let
       pkgs = import nixpkgs { inherit system; overlays = [ self.overlay ]; };
     in
-    rec { }));
+    rec {
+      packages = {
+        inherit (pkgs) vrui;
+      };
+    }));
 }
