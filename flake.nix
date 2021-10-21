@@ -8,6 +8,7 @@
     overlay = final: prev: {
       vrui = prev.callPackage ./vrui { };
       kinect = prev.callPackage ./kinect { };
+      sarndbox = prev.callPackage ./sarndbox { };
     };
   } // (flake-utils.lib.eachDefaultSystem (system:
     let
@@ -15,7 +16,9 @@
     in
     rec {
       packages = {
-        inherit (pkgs) vrui kinect;
+        inherit (pkgs) vrui kinect sarndbox;
       };
+
+      defaultPackage = packages.sarndbox;
     }));
 }
