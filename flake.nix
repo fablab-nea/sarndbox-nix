@@ -7,6 +7,7 @@
   outputs = { self, nixpkgs, flake-utils }: {
     overlay = final: prev: {
       vrui = prev.callPackage ./vrui { };
+      kinect = prev.callPackage ./kinect { };
     };
   } // (flake-utils.lib.eachDefaultSystem (system:
     let
@@ -14,7 +15,7 @@
     in
     rec {
       packages = {
-        inherit (pkgs) vrui;
+        inherit (pkgs) vrui kinect;
       };
     }));
 }
